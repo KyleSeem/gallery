@@ -1,0 +1,56 @@
+<div ng-init="getPath()"></div>
+<div ng-init="index()"></div>
+
+<ul class="nav nav-tabs" style="margin-top:0; margin-bottom:10px;">
+    <li role="presentation"><a href="#!/photography/maintain/add_new">add new photo</a></li>
+    <li class="active" role="presentation"><a href="#!/photography/maintain/update_db">edit existing photo</a></li>
+</ul>
+<!-- <div ng-repeat="photo in photos | orderBy:'name'">
+    <p>{ name: "{{ photo.name }}", description: "{{ photo.description }}", file_name: "{{ photo.file_name }}", tags: {{ photo.tags }}, orientation: "{{ photo.orientation }}" },</p>
+</div> -->
+
+<!-- if alerts -->
+    <div ng-if="alerts.length > 0">
+        <div class="alert alert-{{ alert_class }}">
+            <span class="close" aria-hidden="true" ng-click="alerts.length = 0">&times;</span>
+            <p ng-repeat="alert in alerts">{{ alert }}</p>
+        </div>
+    </div>
+
+<main>
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+    <!-- table head -->
+            <thead>
+                <tr>
+                    <th class="col-md-2">Title</th>
+                    <th class="col-md-4">Description</th>
+                    <th class="col-md-4">Tags</th>
+                    <th class="col-md-1">Actions</th>
+                </tr>
+            </thead>
+
+    <!-- table body -->
+            <tbody>
+                <tr ng-repeat="photo in photos | orderBy:'name'">
+                    <td class="col-md-2">
+                        <a ng-click="toggleImage()">{{ photo.name }} &#9663;</a>
+                        <div ng-show="img_toggle === 0"></div>
+                        <div ng-show="img_toggle === 1">
+                            <img style="width:100%;" src="../static/img/{{ photo.file_name }}">
+                        </div>
+                    </td>
+                    <td class="col-md-4">{{ photo.description }}</td>
+                    <td class="col-md-4">
+                        <div style="display:inline-block;" ng-repeat="tag in photo.tags | orderBy:tag">&nbsp;'{{ tag }}'&nbsp;</div>
+                    </td>
+                    <td class="col-md-1" style="text-align:center;">
+                        <a ng-click="edit(photo._id)"><u>edit</u></a> &nbsp;
+                        <a ng-click="doubleCheck(photo)"><u>delete</u></a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</main>

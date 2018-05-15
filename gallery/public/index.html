@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8" name="description" content="Online shopping example for personal portfolio">
+        <meta name="author" content="Kyle Seem">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KS Photography</title>
+        <link rel="ksp icon" href="ksp_icon.ico">
+    <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Quicksand" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- angular-masonry dependancies // order is important!!!! -->
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="jquery-bridget/jquery-bridget.js"></script>
+        <script src="desandro-matches-selector/matches-selector.js"></script>
+        <script src="get-size/get-size.js"></script>
+        <script src="ev-emitter/ev-emitter.js"></script>
+        <script src="matches-selector/matches-selector.js"></script>
+        <script src="fizzy-ui-utils/utils.js"></script>
+        <script src="outlayer/item.js"></script>
+        <script src="outlayer/outlayer.js"></script>
+        <script src="masonry/masonry.js"></script>
+        <script src="imagesloaded/imagesloaded.js"></script>
+    <!-- angular dependencies -->
+        <script src="angular/angular.js"></script>
+        <script src="angular-masonry/angular-masonry.js"></script>
+        <script src="angular-animate/angular-animate.js"></script>
+        <script src="angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="angular-cookies/angular-cookies.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+    <!-- files located within this project -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="./assets/config/app.js"></script>
+        <script src="./assets/config/routes.js"></script>
+        <script src="./assets/controllers/PhotosController.js"></script>
+        <script src="./assets/controllers/MaintenanceController.js"></script>
+        <script src="./assets/controllers/MaintenanceController_ORIGINAL.js"></script>
+        <script src="./assets/controllers/ModalInstanceCtrl.js"></script>
+        <script src="./assets/factories/photoFactory.js"></script>
+    </head>
+    <body ng-controller="PhotosController">
+        <div class="container">
+
+        <!-- page header and nav bar -->
+            <header class="page-header">
+                <h1 id="KSP">KS Photography</h1>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                <!-- minimum dispayed (if navbar collapse == true) -->
+                        <div class="navbar-header">
+                        <!-- collapse box image -->
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        <!-- brand icon // will route to home on click -->
+                            <a id="ksp" class="navbar-brand" href="#!/photography/home" ng-click="myPath = '/photography/home'"><span id="myBrand">KSP</span></a>
+                        </div>
+
+                <!-- all other nav bits included in collapse div -->
+                        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li id="isHome" class="{{ isHome }}"><a href="#!/photography/home">home</a></li>
+                                <!-- <li ng-class="{{ contactClass }}"><a href="#">contact</a></li> -->
+                            </ul>
+
+                            <ul class="nav navbar-nav">
+                                <li id="isAbout" class="{{ isAbout }}" uib-dropdown>
+                                    <a href="#" id="about_dropdown" class="dropdown-toggle" uib-dropdown-toggle>
+                                        about <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="about_dropdown">
+                                        <li role="menuitem"><a href="#!/photography/about_site">about this site</a></li>
+            <!-- this will need to be updated when main landing page is added -->
+                                        <li role="menuitem"><a href="#!/photography/about_me">about the developer</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                    <!-- search box // only shows on dashboard/home page -->
+                            <ul class="nav navbar-nav" ng-hide="renderAction != 'home'">
+                                <li>
+                                    <div class="navbar-form navbar-left">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" ng-model="search.tags" placeholder="search tags">
+                                        </div>
+                                        <button type="button" class="btn btn-default" ng-click="clearFilter()">clear search</button>
+                                    </div>
+                                </li>
+                            </ul>
+
+                    <!-- dev-only or not yet completed options -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <li id="isUpdate" class="{{ isUpdate }}">
+                                    <a uib-tooltip="for dev" href="#!/photography/maintain/update_db"><i class="glyphicon glyphicon-cog"></i> update</a>
+                                </li>
+                            </ul>
+
+                        </div> <!-- close collapse section -->
+                    </div> <!-- close fluid container -->
+                </nav>
+            </header>
+
+
+            <div ng-view="">
+                <!-- this is where the partials will show -->
+            </div>
+
+        </div> <!-- close main container -->
+    </body>
+</html>

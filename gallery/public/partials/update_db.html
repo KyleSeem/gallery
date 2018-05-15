@@ -1,0 +1,75 @@
+<!-- this version has been modified to allow limited functionality upon deployment -->
+
+<div ng-init="index()"></div>
+<div ng-init="headsUp()"></div>
+
+<ul class="nav nav-tabs" style="margin-top:0; margin-bottom:10px;">
+    <li class="active" role="presentation"><a href="#!/photography/maintain/update_db"><strong>existing photos</strong></a></li>
+    <li role="presentation"><a href="#!/photography/maintain/add_new">add new photo</a></li>
+</ul>
+
+<!-- if alerts -->
+    <div ng-if="alerts.length > 0">
+        <div class="alert alert-{{ alert_class }}">
+            <span class="close" aria-hidden="true" ng-click="alerts.length = 0">&times;</span>
+            <p ng-repeat="alert in alerts">{{ alert }}</p>
+        </div>
+    </div>
+
+<main>
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+    <!-- table head -->
+            <thead>
+                <tr>
+                    <th class="col-md-2">Title</th>
+                    <th class="col-md-4">Description</th>
+                    <th class="col-md-4">Tags</th>
+                    <th class="col-md-1">Actions</th>
+                </tr>
+            </thead>
+
+    <!-- table body -->
+            <tbody>
+        <!-- ngRepeat sessionPhotos -->
+                <tr ng-repeat="photo in sessionPhotos | orderBy:'name'">
+                    <td class="col-md-2">
+                        <a ng-click="toggleImage()">{{ photo.name }} &#9663;</a>
+                        <div ng-show="img_toggle === 0"></div>
+                        <div ng-show="img_toggle === 1">
+                            <img style="width:100%;" src="../static/example_img/{{ photo.file_name }}">
+                        </div>
+                    </td>
+                    <td class="col-md-4">{{ photo.description }}</td>
+                    <td class="col-md-4">
+                        <div style="display:inline-block;" ng-repeat="tag in photo.tags | orderBy:tag">&nbsp;'{{ tag }}'&nbsp;</div>
+                    </td>
+                    <td class="col-md-1" style="text-align:center;">
+                        <a ng-click="edit(photo)"><u>edit</u></a> &nbsp;
+                        <a ng-click="doubleCheck(photo)"><u>delete</u></a>
+                    </td>
+                </tr>
+
+        <!-- ngRepeat photos from database -->
+                <tr ng-repeat="photo in photos | orderBy:'name'" style="background-color:#f8f8f8">
+                    <td class="col-md-2">
+                        <a ng-click="toggleImage()">{{ photo.name }} &#9663;</a>
+                        <div ng-show="img_toggle === 0"></div>
+                        <div ng-show="img_toggle === 1">
+                            <img style="width:100%;" src="../static/img/{{ photo.file_name }}">
+                        </div>
+                    </td>
+                    <td class="col-md-4">{{ photo.description }}</td>
+                    <td class="col-md-4">
+                        <div style="display:inline-block;" ng-repeat="tag in photo.tags | orderBy:tag">&nbsp;'{{ tag }}'&nbsp;</div>
+                    </td>
+                    <td class="col-md-1" style="text-align:center; color:#a1a2a5;">
+                        <!-- no longer identified as links due to limited functionality updates -->
+                        edit &nbsp;
+                        delete
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

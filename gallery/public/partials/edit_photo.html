@@ -1,0 +1,79 @@
+<!-- this version has been modified to allow limited functionality upon deployment -->
+
+<!-- displays photo selected for edit -->
+<div class="nav" style="width:90%; text-align:right; padding-bottom:20px;">
+    <a href="#!/photography/maintain/update_db">back to list</a>
+</div>
+
+<main ng-init="show()">
+    <section class="col-md-4" style="display:inline-block">
+        <!-- if alerts -->
+        <div ng-if="alerts.length > 0">
+            <div class="alert alert-{{ alert_class }}">
+                <span class="close" aria-hidden="true" ng-click="alerts.length = 0">&times;</span>
+                <p ng-repeat="alert in alerts">{{ alert }}</p>
+            </div>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label class="control-label" for="name">Title:</label>
+                <input class="form-control" type="text" name="name" ng-model="editPhoto.name">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="description">Description (optional):</label>
+                <input class="form-control" type="text" name="description" ng-model="editPhoto.description">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="file_name">File Name:</label>
+                <input class="form-control" type="text" name="file_name" ng-model="editPhoto.file_name" disabled>
+            </div>
+
+        <!-- edit tags -->
+            <div class="form-group">
+                <label class="control-label" for="tags">Tags:</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="tags" ng-model="newTag">
+                    <div class="input-group-btn">
+                        <button class="btn btn-info" type="submit" ng-click="pushTag(newTag)" role="button">add tag</button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- show tags (temp tags array) div -->
+            <div class="form-group">
+                <div id="showTags" ng-show="tempTags.length > 0">
+                    <div ng-repeat="tag in tempTags | orderBy:-key">
+                        <div class="btn btn-default" ng-click="removeTag(tag)">{{ tag }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- type has been changed to button instead of submit since it is only changing session info -->
+                <input class="btn btn-primary" type="button" value="Update" ng-click="update()">
+            </div>
+        </form>
+    </section>
+
+
+<!-- image preview -->
+    <section class="col-md-offset-1 col-md-7" style="display:inline-block;">
+        <div ng-show="editPhoto.orientation == undefined">
+            <div class="thumbnail" style="width:500px; height:400px;">
+                <div><i>Image Preview...</i></div>
+            </div>
+        </div>
+
+        <div ng-show="editPhoto.orientation === 'vertical'">
+            <img class="preview vertical" src="../static/example_img/{{ editPhoto.file_name }}">
+        </div>
+
+        <div ng-show="editPhoto.orientation === 'horizontal'">
+            <img class="preview horizontal" src="../static/example_img/{{ editPhoto.file_name }}">
+        </div>
+
+    </section>
+</main>

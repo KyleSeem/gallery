@@ -1,0 +1,142 @@
+<!-- this version has been modified to allow limited functionality upon deployment -->
+<!-- ng-model has been changed to "newPhoto" which will only make changes on the front end - the mongoose database will not be changed -->
+
+<div ng-init="getPath()"></div>
+<div ng-init="index()"></div>
+
+<ul class="nav nav-tabs" style="margin-top:0; margin-bottom:10px;">
+    <li role="presentation"><a href="#!/photography/maintain/update_db">existing photos</a></li>
+    <li class="active" role="presentation"><a href="#!/photography/maintain/add_new"><strong>add new photo</strong></a></li>
+</ul>
+
+<!-- ADD/EDIT TAB NAV -->
+<section class="col-md-4" style="display:inline-block">
+<!-- if alerts -->
+    <div ng-if="alerts.length > 0">
+        <div class="alert alert-{{ alert_class }}">
+             <span class="close" aria-hidden="true" ng-click="alerts.length = 0">&times;</span>
+            <p ng-repeat="alert in alerts">{{ alert }}</p>
+        </div>
+    </div>
+
+
+<!-- ADD PHOTO TO DB FORM (actually creates temp object since this is the deployment version) -->
+    <form>
+        <div class="form-group">
+            <label class="control-label" for="file_name">File Name:</label>
+            <select class="form-control" name="file_name" ng-model="newPhoto.file_name">
+                <option>me_at_the_beach.jpg</option>
+                <option>nola_street_music.jpg</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="name">Title:</label>
+            <input class="form-control" type="text" name="name" ng-model="newPhoto.name">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="description">Description (optional):</label>
+            <input class="form-control" type="text" name="description" ng-model="newPhoto.description">
+        </div>
+
+    <!-- add multiple tags -->
+        <div class="form-group">
+            <label class="control-label" for="tags">Tags:</label>
+            <div class="input-group">
+                <input class="form-control" type="text" name="tags" ng-model="newTag">
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit" ng-click="pushTag(newTag)" role="button">add</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- radio buttons use ngSwitch based on file_name -->
+        <div class="form-group">
+            <label class="control-label" for="orientation">Orientation:</label>
+            <div class="animate-switch-container" ng-switch on="newPhoto.file_name">
+            <!-- default view -->
+                <div ng-switch-default>
+                    <div class="radio" style="margin-top:0px;">
+                        <label>
+                            <input type="radio" name="orientation" value="horizontal" ng-model="newPhoto.orientation">
+                            horizontal
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="orientation" value="vertical" ng-model="newPhoto.orientation">
+                            vertical
+                        </label>
+                    </div>
+                </div>
+            <!-- nola view -->
+                <div ng-switch-when="nola_street_music.jpg">
+                    <div class="radio" style="margin-top:0px;">
+                        <label>
+                            <input type="radio" name="orientation" value="horizontal" ng-model="newPhoto.orientation">
+                            horizontal
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label style="color:#c5c1c2; cursor:default;">
+                            <input type="radio" disabled>
+                            vertical
+                        </label>
+                    </div>
+                </div>
+            <!-- beach view -->
+                <div ng-switch-when="me_at_the_beach.jpg">
+                    <div class="radio" style="margin-top:0px;">
+                        <label style="color:#c5c1c2; cursor:default;">
+                            <input type="radio" disabled>
+                            horizontal
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="orientation" value="vertical" ng-model="newPhoto.orientation">
+                            vertical
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- submit button -->
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Submit" ng-click="createTemp()">
+        </div>
+    </form>
+</section>
+
+
+
+<!-- PHOTO PREVIEW SECTION -->
+<!-- this section has been modified with ngSwitch and ngShow to effect limited functionality -->
+<section class="col-md-offset-1 col-md-7" style="display:inline-block;">
+    <div class="animate-switch-container" ng-switch on="newPhoto.orientation">
+        <div ng-switch-default>
+            <div class="thumbnail" style="width:500px; height:400px;">
+                <div><i>Photo Preview...</i></div>
+            </div>
+        </div>
+
+        <div ng-switch-when="horizontal">
+            <img ng-show="newPhoto.file_name === 'nola_street_music.jpg'" class="preview horizontal" src="../static/example_img/{{ newPhoto.file_name }}">
+            <div ng-show="newPhoto.file_name === 'me_at_the_beach.jpg'" class="thumbnail" style="width:500px; height:400px;"><div><i>Photo Preview...</i></div></div>
+        </div>
+
+        <div ng-switch-when="vertical">
+            <img ng-show="newPhoto.file_name === 'me_at_the_beach.jpg'" class="preview vertical" src="../static/example_img/{{ newPhoto.file_name }}">
+            <div ng-show="newPhoto.file_name === 'nola_street_music.jpg'" class="thumbnail" style="width:500px; height:400px;"><div><i>Photo Preview...</i></div></div>
+        </div>
+    </div>
+
+    <!-- tempTags -->
+    <div id="showTags" ng-show="tempTags.length > 0">
+        <label>Tags:&nbsp;</label>
+        <div ng-repeat="tag in tempTags">
+            <div class="btn btn-default" ng-click="removeTag(tag)">{{ tag }}</div>
+        </div>
+    </div>
+</section>

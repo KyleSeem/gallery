@@ -1,0 +1,26 @@
+<!-- this modal pops up when delete function is initially invoked -->
+
+<div class="dialog">
+    <div class="alert alert-danger" style="margin:0px;">
+
+    <!-- modal-header / warning message -->
+        <div class="modal-header" style="padding:0px 15px; border-bottom:1px solid #a9a7a7;">
+            <h2 class="modal-title">WARNING!</h2>
+            <h4>Do you want to permanently delete this photo?</h4>
+        </div>
+
+    <!-- modal-body / displays photo -->
+        <div class="modal-body">
+            <div class="thumbnail" style="margin:0px;">
+                <img class="modal-thumb" src="../static/example_img/{{ photo.file_name }}" alt="{{ photo.name }}">
+            </div>
+        </div>
+
+    <!-- modal footer / resolution buttons -->
+        <div class="modal-footer" style="text-align:center; padding-bottom:0px; border-top:1px solid #a9a7a7;">
+            <button class="btn btn-info" ng-click="yesDeleteSess(photo)">Delete Photo</button>
+            <button class="btn btn-danger" ng-click="close()">Cancel</button>
+        </div>
+
+    </div>
+</div>

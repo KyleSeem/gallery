@@ -1,0 +1,41 @@
+<!-- this is the template for the modal that allows the user to view a larger version of the selected photo -->
+
+<div class="dialog {{ photo.orientation }}">
+
+<!-- modal-header / photo description and close(x) -->
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">{{ photo.name }}</h3>
+        <h4 class="modal-title"><i>{{ photo.description }}</i></h4>
+    </div>
+
+<!-- modal-body / displays photo -->
+    <div class="modal-body" ng-show="photo.file_name != 'me_at_the_beach.jpg' && photo.file_name != 'nola_street_music.jpg'">
+        <img class="modal-image" src="../static/img/{{ photo.file_name }}">
+    </div>
+
+    <div class="modal-body" ng-show="photo.file_name === 'me_at_the_beach.jpg' || photo.file_name === 'nola_street_music.jpg'">
+        <img class="modal-image" src="../static/example_img/{{ photo.file_name }}">
+    </div>
+
+<!-- modal footer / contains search via tag links -->
+    <div class="modal-footer">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+            <!-- tag label -->
+                <span aria-hidden="true"></span>
+                <li class="disabled"><a>Tags: </a></li>
+                <span aria-hidden="true"></span>
+
+            <!-- tags: -->
+                <span class="pagination" ng-repeat="tag in photo.tags">
+                    <span aria-hidden="true"></span>
+                    <li><a uib-tooltip="search tag" href="" ng-click="searchTag()">{{ tag }}</a></li>
+                    <span aria-hidden="true"></span>
+                </span>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div ng-init="clearWall()"></div>
+<div ng-init="getSession()"></div>
+<div ng-init="index()"></div>
+
+<!-- uses angular-masonry to display all photos loaded in db -->
+<div class="row" style="margin:0px;">
+    <div masonry load-images="true">
+    <!-- limited functionality images (stores as cookies) -->
+        <div ng-repeat="photo in sessionPhotos | filter:search:strict">
+            <div class="masonry-brick" prepend="isPrepended()">
+                <a href="" ng-click="viewPhoto()">
+                    <img class="myBrick" src="../static/example_img/{{ photo.file_name }}" alt="{{ photo.name }}">
+                </a>
+            </div>
+        </div>
+    <!-- images stored in database -->
+        <div ng-repeat="photo in photos | orderBy:'-name' | filter:search:strict">
+            <div class="masonry-brick">
+                <a href="" ng-click="viewPhoto()">
+                    <img class="myBrick" src="../static/img/{{ photo.file_name }}" alt="{{ photo.name }}">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
