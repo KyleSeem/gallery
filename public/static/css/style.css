@@ -51,7 +51,7 @@ header.page-header {
     /* modal */
         .modal-dialog {
             /* width: 400px; */
-            width: 65%;
+            width: 60%;
         }
         .vertical .modal-dialog {
             /* width: 400px; */
@@ -146,7 +146,7 @@ header.page-header {
     table a {
         cursor: pointer;
     }
-    
+
 /* about pages */
     section.about {
         font-family: 'Quicksand', sans-serif;

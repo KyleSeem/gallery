@@ -7,6 +7,8 @@ myApp.controller('MaintenanceController_ORIGINAL', ['$scope', 'photoFactory', '$
     $scope.img_toggle = 0;
     $scope.alerts = [];
 
+    console.log($scope.photos);
+
     // get all images from database
     $scope.index = function() {
         photoFactory.index(function(response) {

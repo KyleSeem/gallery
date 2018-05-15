@@ -10,7 +10,7 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
     $scope.img_toggle = 0;
     $scope.alerts = [];
 
-
+    
     // defines date object used for cookie expiration
     var n = new Date();
     var expDate = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours()+4);

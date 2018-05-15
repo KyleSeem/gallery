@@ -1,10 +1,10 @@
 
-myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$location', '$routeParams', '$uibModal', '$route', function($scope, photoFactory, $cookies, $location, $routeParams, $uibModal, $route){
+myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$location', '$routeParams', '$uibModal', '$route', '$window', function($scope, photoFactory, $cookies, $location, $routeParams, $uibModal, $route, $window){
     $scope.sessionPhotos = $cookies.getObject('photoArray');
     $scope.animationsEnabled = true;
     $scope.photos = [];
     $scope.selectedTag;
-    console.log('scope', $scope);
+
 
 // gets the data from the current route and updates nav bar with "active" class for associated route
     render = function() {
@@ -69,7 +69,6 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
 // MODAL - window size adjusted for vertical photos
     $scope.viewPhoto = function() {
         var $ctrl = this;
-        console.log('s', $scope.selectedTag);
         // console.log($ctrl.photo);
 
         if ($ctrl.photo.orientation === 'vertical') {
@@ -99,9 +98,9 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     // search database for photos with selected tag
         modalInstance.result.then(function(selectedTag) {
             // assign to parent scope so clear filter will reset properly
-            console.log(selectedTag);
             $scope.$parent.search = { tags: selectedTag };
             $scope.search = { tags: selectedTag };
+            $window.scrollTo(0,0);
         });
     }
 
