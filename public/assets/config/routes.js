@@ -48,8 +48,9 @@ myApp.config(function($routeProvider, $cookiesProvider){
     //     controller: 'MaintenanceController_ORIGINAL',
     //     action: 'update',
     // })
-    // .otherwise({
-    //     redirectTo: '/photography/home',
-    // })
+    
+    .otherwise({
+        redirectTo: '/photography/home',
+    })
 
 }); // close

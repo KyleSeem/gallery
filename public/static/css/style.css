@@ -1,7 +1,11 @@
 .container  {
     margin: auto;
 }
-
+/* attached to ngClass "background" and shows on about pages only */
+.painting {
+    background:url('../example_img/Project2.png');
+    width: 100vw;
+}
 /* page header */
 header.page-header {
     border: none;
@@ -48,24 +52,26 @@ header.page-header {
         outline: none !important;
     }
 
-    /* modal */
-        .modal-dialog {
-            /* width: 400px; */
-            width: 60%;
-        }
-        .vertical .modal-dialog {
-            /* width: 400px; */
-            width: 38%;
-        }
-        .modal-image {
-            max-width: 100%;
-        }
-        .pagination {
-            margin: 0;
-        }
-        .warn-modal .modal-dialog {
-            width: 35%;
-        }
+/* modal */
+    .modal-dialog {
+        width: fit-content;
+    }
+    .img-responsive {
+        max-height: 75vh;
+        /* max-height: 100%; */
+    }
+    img.img-responsive.horizontal {
+        max-height: 60vh;
+    }
+    .pagination {
+        margin: 0;
+    }
+    .warn-modal .modal-dialog {
+        width: 35%;
+    }
+    #headsUp {
+        max-width: 50vw;
+    }
 
 /* update - add new */
     .thumbnail {
@@ -154,14 +160,25 @@ header.page-header {
     }
         .about div {
             margin-bottom: 1.5em;
+            padding-bottom: .5em;
         }
         .about h1 {
             font-size: 3em;
         }
         .about h2 {
-            padding-bottom: .25em;
-            border-bottom: 1px solid #e7e7e7;
+            padding-left: .5em;
+        }
+        .about h3 {
+            font-size: 1.5em;
         }
         .about p {
             font-size: 1.25em;
+        }
+        .indent {
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        div.trbox {
+            color: #000000;
+            background: rgba(255, 255, 255, 0.65);
         }

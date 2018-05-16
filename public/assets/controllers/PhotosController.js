@@ -17,12 +17,15 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
         $scope.renderAction = renderAction;
         if (isHome) {
             $scope.isHome = 'active';
+            $scope.background = null;
         }
         else if (isUpdate) {
             $scope.isUpdate = 'active';
+            $scope.background = null;
         }
         else if (isAbout) {
             $scope.isAbout = 'active';
+            $scope.background = 'painting';
         }
     }
 
@@ -71,29 +74,16 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
         var $ctrl = this;
         // console.log($ctrl.photo);
 
-        if ($ctrl.photo.orientation === 'vertical') {
-            var modalInstance = $uibModal.open({
-                templateUrl: 'modals/view_image_modal.html',
-                controller: 'ModalInstanceCtrl',
-                windowClass: 'vertical',
-                resolve: {
-                    photo: function() {
-                        return $ctrl.photo;
-                    },
-                },
-            });
-        }
-        else if ($ctrl.photo.orientation === 'horizontal') {
-            var modalInstance = $uibModal.open({
-                templateUrl: 'modals/view_image_modal.html',
-                controller: 'ModalInstanceCtrl',
-                resolve: {
-                    photo: function() {
-                        return $ctrl.photo;
-                    }
-                },
-            });
-        }
+        var modalInstance = $uibModal.open({
+            templateUrl: 'modals/view_image_modal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                photo: function() {
+                    return $ctrl.photo;
+                }
+            },
+        });
+
 
     // search database for photos with selected tag
         modalInstance.result.then(function(selectedTag) {
