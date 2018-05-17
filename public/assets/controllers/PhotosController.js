@@ -63,7 +63,7 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
 
 // clear search results manually
     $scope.clearFilter = function() {
-        $scope.search = undefined;
+        $scope.search = {};
         $scope.photos = [];
         $scope.sessionPhotos = $cookies.getObject('photoArray');
         $scope.index();
