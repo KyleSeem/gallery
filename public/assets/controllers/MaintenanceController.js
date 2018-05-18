@@ -1,6 +1,6 @@
 // this controller contains altered CRUD functions designed to limit functionality in deployment to portfolio site
 
-myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal', '$cookies', '$location', "$routeParams", '$route', function($scope, photoFactory, $uibModal, $cookies, $location, $routeParams, $route){
+myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal', '$cookies', '$location', "$routeParams", '$route', '$window', function($scope, photoFactory, $uibModal, $cookies, $location, $routeParams, $route, $window){
     $scope.sessionPhotos = $cookies.getObject('photoArray');
     $scope.sessionModal = $cookies.getObject('modalViewed');
     $scope.photos = [];
@@ -73,6 +73,7 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
                 $scope.tempTags = [];
                 $scope.alert_class = 'success';
                 $scope.alerts.push('Photo successfully added');
+                $window.scrollTo(0,0);
                 // console.log(expDate);
             }
             $scope.alerts = $scope.alerts;
@@ -167,8 +168,17 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
         });
 
     // if confirmation received for delete, return id of photo
-        modalInstance.result.then(function(pID) {
-            $scope.delete(pID);
+        modalInstance.result
+        .then(function(pID) {
+            if (pID != undefined) {
+                $scope.delete(pID);
+            }
+        })
+        // handles error rejection
+        .catch(function(res) {
+            if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+                throw res;
+            }
         });
 
     }

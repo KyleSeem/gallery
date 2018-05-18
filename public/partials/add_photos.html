@@ -113,10 +113,10 @@
 
 <!-- PHOTO PREVIEW SECTION -->
 <!-- this section has been modified with ngSwitch and ngShow to effect limited functionality -->
-<section class="col-md-offset-1 col-md-7" style="display:inline-block;">
+<section id="prv" class="col-md-offset-1 col-md-7" style="display:inline-block;">
     <div class="animate-switch-container" ng-switch on="newPhoto.orientation">
         <div ng-switch-default>
-            <div class="thumbnail" style="width:500px; height:400px;">
+            <div class="thumbnail">
                 <div><i>Photo Preview...</i></div>
             </div>
         </div>

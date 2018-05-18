@@ -69,6 +69,19 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
         $scope.index();
     }
 
+// open new tab for github repo link (about site page)
+    $scope.newTab = function() {
+        $window.open('https://github.com/KyleSeem/gallery');
+    }
+
+// collapse animation gets wonky in full screen mode -
+//this seems to resolve the issue rather than having 'ng-click="isNavCollapsed = !isNavCollapsed"'
+    $scope.checkCollapse = function() {
+        if ($scope.isNavCollapsed === true) {
+            $scope.isNavCollapsed = false;
+        }
+    }
+
 // MODAL - window size adjusted for vertical photos
     $scope.viewPhoto = function() {
         var $ctrl = this;
@@ -86,11 +99,17 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
 
 
     // search database for photos with selected tag
-        modalInstance.result.then(function(selectedTag) {
+        modalInstance.result
+        .then(function(selectedTag) {
             // assign to parent scope so clear filter will reset properly
             $scope.$parent.search = { tags: selectedTag };
             $scope.search = { tags: selectedTag };
             $window.scrollTo(0,0);
+        })
+        .catch(function(res) {
+            if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+                throw res;
+            }
         });
     }
 

@@ -37,6 +37,14 @@
         <script src="./assets/controllers/MaintenanceController_ORIGINAL.js"></script>
         <script src="./assets/controllers/ModalInstanceCtrl.js"></script>
         <script src="./assets/factories/photoFactory.js"></script>
+        <script>
+            $(document).ready(function() {
+                // disable right click on all images
+                $(document).on('contextmenu', 'img', function() {
+                    return false;
+                });
+            });
+        </script>
     </head>
     <body ng-controller="PhotosController" class="{{ background }}">
         <div class="container">
@@ -44,38 +52,38 @@
         <!-- page header and nav bar -->
             <header class="page-header">
                 <h1 id="KSP">KS Photography</h1>
+                <!-- <h1 id="KSP">KS Photography</h1> -->
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
 
                 <!-- minimum dispayed (if navbar collapse == true) -->
                         <div class="navbar-header">
                         <!-- collapse box image -->
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                            <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
+
                         <!-- brand icon // will route to home on click -->
-                            <a id="ksp" class="navbar-brand" href="#!/photography/home" ng-click="myPath = '/photography/home'"><span id="myBrand">KSP</span></a>
+                            <a id="ksp" class="navbar-brand" href="#!/photography/home"><span id="myBrand">KSP</span></a>
                         </div>
 
-                <!-- all other nav bits included in collapse div -->
-                        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <!-- all other nav bits included in collapse div // is in collapsed mode by default -->
+                        <div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
                             <ul class="nav navbar-nav">
-                                <li id="isHome" class="{{ isHome }}"><a href="#!/photography/home">home</a></li>
-                                <!-- <li ng-class="{{ contactClass }}"><a href="#">contact</a></li> -->
-                            </ul>
+                                <li id="isHome" class="{{ isHome }}"><a href="#!/photography/home" ng-click="checkCollapse()">home</a></li>
+                                <!-- <li ng-class="{{ contactClass }}"><a href="#" ng-click="checkCollapse()">contact</a></li> -->
 
-                            <ul class="nav navbar-nav">
                                 <li id="isAbout" class="{{ isAbout }}" uib-dropdown>
                                     <a href="#" id="about_dropdown" class="dropdown-toggle" uib-dropdown-toggle>
                                         about <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="about_dropdown">
-                                        <li role="menuitem"><a href="#!/photography/about_site">about this site</a></li>
+                                        <li role="menuitem"><a href="#!/photography/about_site" ng-click="checkCollapse()">about this site</a></li>
             <!-- this will need to be updated when main landing page is added -->
-                                        <li role="menuitem"><a href="#!/photography/about_me">about the developer</a></li>
+                                        <li role="menuitem"><a href="#!/photography/about_me" ng-click="checkCollapse()">about the developer</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -84,10 +92,10 @@
                             <ul class="nav navbar-nav" ng-hide="renderAction != 'home'">
                                 <li>
                                     <div class="navbar-form navbar-left">
-                                        <div class="input-group">
-                                            <input class="form-control" type="text" ng-model="search.tags" placeholder="search tags">
+                                        <div class="input-group" style="float:left">
+                                            <input class="form-control" style="border-radius:4px;" type="text" ng-model="search.tags" placeholder="search tags">
                                         </div>
-                                        <button type="button" class="btn btn-default" ng-click="clearFilter()">clear search</button>
+                                        <button type="button" class="btn btn-default" style="margin-left:1em;" ng-click="clearFilter()">clear search</button>
                                     </div>
                                 </li>
                             </ul>
@@ -95,7 +103,7 @@
                     <!-- dev-only or not yet completed options -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li id="isUpdate" class="{{ isUpdate }}">
-                                    <a uib-tooltip="for dev" href="#!/photography/maintain/update_db"><i class="glyphicon glyphicon-cog"></i> update</a>
+                                    <a uib-tooltip="for dev" href="#!/photography/maintain/update_db" ng-click="checkCollapse()"><i class="glyphicon glyphicon-cog"></i> update</a>
                                 </li>
                             </ul>
 

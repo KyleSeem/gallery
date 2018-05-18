@@ -6,37 +6,51 @@
     background:url('../example_img/Project2.png');
     width: 100vw;
 }
+
+/* ///////////////////////////////// */
 /* page header */
 header.page-header {
     border: none;
     padding-bottom: 0;
 }
 /* header h1 */
-    #KSP {
-        font-family: 'Julius Sans One', sans-serif;
-        font-weight: bold;
-        font-size: 4.5em;
-
-    }
-    /* navbar */
-        .navbar {
-            max-width: 1100px;
+    /* big screen */
+    @media screen and (min-width: 601px) {
+        #KSP {
+            font-family: 'Julius Sans One', sans-serif;
+            font-weight: bold;
+            font-size: 4.5em;
         }
-        /* nav brand */
-            #ksp {
-                font-family: 'Julius Sans One', sans-serif;
-                font-weight: bold;
-                color: #333333;
-                font-size: 1.5em;
+    }
+    /* small screen */
+    @media screen and (max-width: 600px) {
+        #KSP {
+            font-family: 'Julius Sans One', sans-serif;
+            font-weight: bold;
+            font-size: 2em;
+        }
+    }
 
-            }
-            #myBrand {
-                /* border: 1px solid; */
-                border-radius: 3px;
-                padding: 3px;
-                background: #d2d1d2;
-            }
+/* navbar */
+    .navbar {
+        max-width: 1100px;
+    }
+    /* nav brand */
+        #ksp {
+            font-family: 'Julius Sans One', sans-serif;
+            font-weight: bold;
+            color: #333333;
+            font-size: 1.5em;
 
+        }
+        #myBrand {
+            border: 1px solid #d2d1d2;
+            border-radius: 3px;
+            padding: 3px;
+            background: #d2d1d2;
+        }
+
+/* ///////////////////////////////// */
 /* home page main */
     .grid-sizer,
     .masonry-brick {
@@ -52,30 +66,58 @@ header.page-header {
         outline: none !important;
     }
 
-/* modal */
+/* ///////////////////////////////// */
+/* MODAL */
     .modal-dialog {
         width: fit-content;
     }
-    .img-responsive {
-        max-height: 75vh;
-        /* max-height: 100%; */
-    }
-    img.img-responsive.horizontal {
-        max-height: 60vh;
-    }
-    .pagination {
-        margin: 0;
-    }
-    .warn-modal .modal-dialog {
-        width: 35%;
-    }
-    #headsUp {
-        max-width: 50vw;
-    }
+        .pagination {
+            margin: 0;
+        }
+        .warn-modal .img-responsive {
+            max-height: 60vh;
+        }
+        #headsUp {
+            max-width: 50vw;
+        }
+    /* small screen */
+        @media screen and (max-width:600px) {
+            .sm-modal-hide {
+                display: none;
+            }
+            .modal-dialog h2, h3 {
+                font-size: 1.5em;
+            }
+            .modal-dialog h4 {
+                font-size: 1em;
+            }
+            .modal-header {
+                padding: 5px 15px;
+            }
+            .img-responsive {
+                max-height: 80vh;
+                max-width: 85vw;
+            }
+            #headsUp {
+                max-width: 95vw;
+            }
+        }
+    /* big screen */
+        @media screen and (min-width:601px;) {
+            .img-responsive {
+                max-height: 75vh;
+            }
+            img.img-responsive.horizontal {
+                max-height: 60vh;
+            }
 
+        }
+
+/* ///////////////////////////////// */
 /* update - add new */
     .thumbnail {
         text-align: center;
+        width: fit-content;
     }
     .thumbnail div {
         margin-top: 100px;
@@ -100,15 +142,24 @@ header.page-header {
         vertical-align: middle;
         padding-top: 5px;
     }
-
-/* update - edit existing */
-    thead {
-        background-color: #f8f8f8;
-    }
-    th {
-        text-align: center;
+    section#prv .thumbnail {
+        width:500px;
+        height:400px;
     }
 
+    /* small screen */
+    @media screen and (max-width:600px) {
+        section#prv .thumbnail {
+            max-width: 80vw;
+
+        }
+        section#prv i {
+            font-size: 1em;
+        }
+    }
+
+/* ///////////////////////////////// */
+/* tags in add new and edit existing sections */
     #showTags {
         display: inline-flex;
         flex-wrap: wrap;
@@ -121,11 +172,28 @@ header.page-header {
         text-decoration: line-through;
     }
 
-/* make table scrollable */
+/* ///////////////////////////////// */
+/* existing photos page (one with table) */
+/* table */
     table {
         display: table;
         width: 100%;
     }
+        thead {
+            background-color: #f8f8f8;
+        }
+        th {
+            text-align: center;
+        }
+        .table-bordered {
+            border-top: 2px solid #ddd;
+            border-bottom: 2px solid #ddd;
+        }
+        table a {
+            cursor: pointer;
+        }
+
+    /* make table scrollable */
         table thead, table tbody {
             width: 100%;
         }
@@ -145,40 +213,74 @@ header.page-header {
             display: table;
             table-layout: fixed;
         }
-    .table-bordered {
-        border-top: 2px solid #ddd;
-        border-bottom: 2px solid #ddd;
-    }
-    table a {
-        cursor: pointer;
+    /* hide description and tags on small screen */
+    @media screen and (max-width:600px) {
+        th.col-md-4.x-data {
+            display: none;
+        }
+        td.col-md-4.ng-binding {
+            display: none;
+        }
+        tr.ng-scope td.col-md-4 {
+            display: none;
+        }
     }
 
+/* ///////////////////////////////// */
 /* about pages */
     section.about {
         font-family: 'Quicksand', sans-serif;
         max-width:1100px;
     }
+    /* big screen */
+    @media screen and (min-width: 601px) {
         .about div {
             margin-bottom: 1.5em;
             padding-bottom: .5em;
         }
+            .about h1 {
+                font-size: 3em;
+            }
+            .about h2 {
+                padding-left: .5em;
+            }
+            .about h3 {
+                font-size: 1.5em;
+            }
+            .about p {
+                font-size: 1.25em;
+            }
+            .indent {
+                padding-left: 2em;
+                padding-right: 2em;
+            }
+            div.trbox {
+                padding-left: 1em;
+                padding-right: .5em;
+                color: #000000;
+                background: rgba(255, 255, 255, 0.85);
+            }
+    }
+    /* small screen */
+    @media screen and (max-width: 600px) {
         .about h1 {
-            font-size: 3em;
+            font-size: 2em;
         }
         .about h2 {
-            padding-left: .5em;
+            font-size: 2em;
+            /* margin: auto; */
         }
         .about h3 {
-            font-size: 1.5em;
+            font-size: 1.35em;
         }
         .about p {
-            font-size: 1.25em;
-        }
-        .indent {
-            padding-left: 2em;
-            padding-right: 2em;
+            padding-bottom: .5em;
+            font-size: 1.1em;
         }
         div.trbox {
+            padding-left: 1em;
+            padding-right: 1em;
             color: #000000;
             background: rgba(255, 255, 255, 0.85);
         }
+    }
