@@ -39,6 +39,25 @@
         <script src="./assets/factories/photoFactory.js"></script>
         <script>
             $(document).ready(function() {
+
+                // var $grid = $('.grid').imagesLoaded(function() {
+                //     $grid.masonry({
+                //         itemSelector: '.masonry-brick',
+                //         columnWidth: '.grid-sizer',
+                //         percentPosition: true
+                //     });
+                // });
+
+                var $grid = $('.grid').masonry({
+                    itemSelector: '.masonry-brick',
+                    columnWidth: '.grid-sizer',
+                    percentPosition: true
+                });
+
+                $grid.imagesLoaded().progress(function() {
+                    $grid.masonry('layout');
+                });
+
                 // disable right click on all images
                 $(document).on('contextmenu', 'img', function() {
                     return false;
@@ -116,6 +135,17 @@
             <div ng-view="">
                 <!-- this is where the partials will show -->
             </div>
+
+            <footer ng-show="renderAction != 'home'">
+                <p>
+                    <div class="trbox" style="width:fit-content; margin:auto;">
+                        © 2018 Kyle Seem |
+                        <a href="https://www.linkedin.com/in/kyle-seem/">LinkedIn</a> |
+                        <a href="https://github.com/KyleSeem">GitHub</a> |
+                        <a href="https://twitter.com/_KyleDanielle">Twitter</a>
+                    </div>
+                </p>
+            </footer>
 
         </div> <!-- close main container -->
     </body>

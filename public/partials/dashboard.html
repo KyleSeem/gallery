@@ -4,7 +4,7 @@
 
 <!-- uses angular-masonry to display all photos loaded in db -->
 <div class="row" style="margin:0px;">
-    <div masonry load-images="true">
+    <div masonry load-images="true" class="grid">
     <!-- limited functionality images (stores as cookies) -->
         <div ng-repeat="photo in sessionPhotos | filter:search:strict">
             <div class="masonry-brick" prepend="isPrepended()">
@@ -23,3 +23,7 @@
         </div>
     </div>
 </div>
+
+<footer class="dash">
+    <p>© 2018 Kyle Seem</p>
+</footer>

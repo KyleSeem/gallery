@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 .container  {
     margin: auto;
 }
@@ -7,19 +10,31 @@
     width: 100vw;
 }
 
+
 /* ///////////////////////////////// */
-/* page header */
+/* page header and footer */
 header.page-header {
     border: none;
     padding-bottom: 0;
 }
-/* header h1 */
     /* big screen */
     @media screen and (min-width: 601px) {
         #KSP {
             font-family: 'Julius Sans One', sans-serif;
             font-weight: bold;
             font-size: 4.5em;
+        }
+        footer {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            position: fixed;
+            right: 2em;
+            left: 2em;
+            margin: 1em 4em;
+            bottom: 0;
+        }
+        footer.dash {
+            position: static;
         }
     }
     /* small screen */
@@ -28,6 +43,12 @@ header.page-header {
             font-family: 'Julius Sans One', sans-serif;
             font-weight: bold;
             font-size: 2em;
+        }
+        footer.footer_all, footer.dash {
+            font-size: .9em;
+            text-align: center;
+            position: static;
+            margin: 1em;
         }
     }
 
@@ -103,7 +124,7 @@ header.page-header {
             }
         }
     /* big screen */
-        @media screen and (min-width:601px;) {
+        @media screen and (min-width:601px) {
             .img-responsive {
                 max-height: 75vh;
             }
@@ -268,7 +289,6 @@ header.page-header {
         }
         .about h2 {
             font-size: 2em;
-            /* margin: auto; */
         }
         .about h3 {
             font-size: 1.35em;
