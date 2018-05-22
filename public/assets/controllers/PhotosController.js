@@ -70,8 +70,9 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     }
 
 // open new tab for github repo link (about site page)
-    $scope.newTab = function() {
-        $window.open('https://github.com/KyleSeem/gallery');
+    $scope.newTab = function(link) {
+        console.log(link);
+        $window.open(link);
     }
 
 // collapse animation gets wonky in full screen mode -

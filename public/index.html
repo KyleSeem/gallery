@@ -138,11 +138,11 @@
 
             <footer ng-show="renderAction != 'home'">
                 <p>
-                    <div class="trbox" style="width:fit-content; margin:auto;">
+                    <div class="trbox" style="width:fit-content; margin:auto; padding:.5em;">
                         © 2018 Kyle Seem |
-                        <a href="https://www.linkedin.com/in/kyle-seem/">LinkedIn</a> |
-                        <a href="https://github.com/KyleSeem">GitHub</a> |
-                        <a href="https://twitter.com/_KyleDanielle">Twitter</a>
+                        <a href ng-click="newTab('https://www.linkedin.com/in/kyle-seem/')">LinkedIn</a> |
+                        <a href ng-click="newTab('https://github.com/KyleSeem')">GitHub</a> |
+                        <a href ng-click="newTab('https://twitter.com/_KyleDanielle')">Twitter</a>
                     </div>
                 </p>
             </footer>
