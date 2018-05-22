@@ -53,29 +53,25 @@ header.page-header {
     }
 
 /* navbar */
-    .navbar {
-        max-width: 1100px;
-    }
-    /* nav brand */
-        #ksp {
-            font-family: 'Julius Sans One', sans-serif;
-            font-weight: bold;
-            color: #333333;
-            font-size: 1.5em;
+    #ksp {
+        font-family: 'Julius Sans One', sans-serif;
+        font-weight: bold;
+        color: #333333;
+        font-size: 1.5em;
 
-        }
-        #myBrand {
-            border: 1px solid #d2d1d2;
-            border-radius: 3px;
-            padding: 3px;
-            background: #d2d1d2;
-        }
+    }
+    #myBrand {
+        border: 1px solid #d2d1d2;
+        border-radius: 3px;
+        padding: 3px;
+        background: #d2d1d2;
+    }
 
 /* ///////////////////////////////// */
 /* home page main */
     .grid-sizer,
     .masonry-brick {
-        width: 32%;
+        width: 33.333%;
     }
     .myBrick {
         max-width: 100%;
