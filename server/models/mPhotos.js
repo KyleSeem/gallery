@@ -23,7 +23,7 @@ const PhotoSchema = new mongoose.Schema({
 
 
 var arr = [
-    { name: "Ballybunion Beach", description: "Ballybunnion, Co. Kerry", file_name: "beach1.jpg", tags: ["ocean","landscape","Ireland"], orientation: "horizontal" },
+    { name: "Ballybunion Beach", description: "Ballybunnion, Co. Kerry", file_name: "beach1.jpg", tags: ["ocean","water","landscape","Ireland"], orientation: "horizontal" },
     { name: "Belvelly Sunset", description: "Skyline outside of Belvelly Castle, Co. Cork", file_name: "sunset2.jpg", tags: ["sunset","landscape","Ireland"], orientation: "horizontal" },
     { name: "Bent", description: "Louisiana Swamp", file_name: "swamp1.jpg", tags: ["summer", "water", "swamp", "landscape"], orientation: "horizontal" },
     { name: "Black Sea Nettle", description: "(Chrysaora Achlyos)", file_name: "jelly1.jpg", tags: ["animals","jellyfish","water"], orientation: "vertical" },
@@ -33,7 +33,7 @@ var arr = [
     { name: "Common Cuttlefish", description: "Sepia Officinalis", file_name: "cuttlefish1.jpg", tags: ["water","animals"], orientation: "horizontal" },
     { name: "Country House", description: "Belvelly, Co. Cork", file_name: "house1.jpg", tags: ["landscape","Ireland","country"], orientation: "horizontal" },
     { name: "Cracked", description: "Somewhere in New Orleans, Louisiana", file_name: "nola1.jpg", tags: ["NOLA", "urban decay"], orientation: "horizontal" },
-    { name: "Doonagore Castle", description: "Ballycullaun, Co. Clare", file_name: "doonagore1.jpg", tags: ["castle","landmark","ocean","water"], orientation: "vertical" },
+    { name: "Doonagore Castle", description: "Ballycullaun, Co. Clare", file_name: "doonagore1.jpg", tags: ["castle", "Ireland","landmark","ocean","water"], orientation: "vertical" },
     { name: "Drombeg Stone Circle", description: "Megalithic stone circle c. 1100 BCE., Co. Cork", file_name: "drombeg1.jpg", tags: ["Ireland","landmark","landscape","stone age"], orientation: "horizontal" },
     { name: "Dunguaire Castle", description: "Dungory East, Kinvarra, Co. Galway", file_name: "dunguaire1.jpg", tags: ["castle","Ireland","landmark","landscape"], orientation: "horizontal" },
     { name: "Flame Jelly", description: "(Rhopilema Esculentum)", file_name: "jelly4.jpg", tags: ["animals","jellyfish","water"], orientation: "vertical" },
@@ -54,7 +54,7 @@ var arr = [
     { name: "Six Flags", description: "Entrance to Six Flags, New Orleans, Louisiana", file_name: "six_flags1.jpg", tags: ["NOLA", "urban decay"], orientation: "vertical" },
     { name: "Street Art", description: "New Orleans, Louisiana", file_name: "paintings1.jpg", tags: ["NOLA"], orientation: "horizontal" },
     { name: "Streets of Cobh", description: "West Beach, Kilgarvan, Cobh, Co. Cork", file_name: "cobh1.jpg", tags: ["Ireland"], orientation: "horizontal" },
-    { name: "Sunset at St. Patrick's Rock", description: "Rock of Cashel, Co. Tipperary", file_name: "sunset1.jpg", tags: ["sunset","landscape","landmark","animals"], orientation: "horizontal" },
+    { name: "Sunset at St. Patrick's Rock", description: "Rock of Cashel, Co. Tipperary", file_name: "sunset1.jpg", tags: ["sunset","Ireland","landscape","landmark","animals"], orientation: "horizontal" },
     { name: "Terminator II", description: "Swamp tour boat, Louisiana", file_name: "boat1.jpg", tags: ["summer", "water", "swamp"], orientation: "horizontal" },
     { name: "View from the Rock", description: "View of View of Hore Abbey from the Rock of Cashel, Co. Tipperary", file_name: "hore1.jpg", tags: ["sunset","Ireland","animals","landscape","landmark","sheep"], orientation: "horizontal" },
     { name: "Wandering Sheep", description: "Ring of Kerry, Co. Kerry", file_name: "sheep2.jpg", tags: ["landscape","Ireland","animals","sheep"], orientation: "horizontal" },

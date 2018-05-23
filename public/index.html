@@ -40,23 +40,23 @@
         <script>
             $(document).ready(function() {
 
-                // var $grid = $('.grid').imagesLoaded(function() {
-                //     $grid.masonry({
-                //         itemSelector: '.masonry-brick',
-                //         columnWidth: '.grid-sizer',
-                //         percentPosition: true
-                //     });
+                var $grid = $('.grid').imagesLoaded(function() {
+                    $grid.masonry({
+                        itemSelector: '.masonry-brick',
+                        columnWidth: '.grid-sizer',
+                        percentPosition: true
+                    });
+                });
+
+                // var $grid = $('.grid').masonry({
+                //     itemSelector: '.masonry-brick',
+                //     columnWidth: '.masonry-brick',
+                //     percentPosition: true
                 // });
-
-                var $grid = $('.grid').masonry({
-                    itemSelector: '.masonry-brick',
-                    columnWidth: '.grid-sizer',
-                    percentPosition: true
-                });
-
-                $grid.imagesLoaded().progress(function() {
-                    $grid.masonry('layout');
-                });
+                //
+                // $grid.imagesLoaded().progress(function() {
+                //     $grid.masonry('layout');
+                // });
 
                 // disable right click on all images
                 $(document).on('contextmenu', 'img', function() {

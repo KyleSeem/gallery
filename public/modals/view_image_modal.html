@@ -30,7 +30,7 @@
                 <span aria-hidden="true"></span>
 
             <!-- tags: -->
-                <span class="pagination" ng-repeat="tag in photo.tags">
+                <span class="pagination" ng-repeat="tag in photo.tags | orderBy:-key">
                     <span aria-hidden="true"></span>
                     <li><a uib-tooltip="search tag" href="" ng-click="searchTag()">{{ tag }}</a></li>
                     <span aria-hidden="true"></span>

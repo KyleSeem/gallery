@@ -135,7 +135,7 @@
     <!-- tempTags -->
     <div id="showTags" ng-show="tempTags.length > 0">
         <label>Tags:&nbsp;</label>
-        <div ng-repeat="tag in tempTags">
+        <div ng-repeat="tag in tempTags | orderBy:-key">
             <div class="btn btn-default" ng-click="removeTag(tag)">{{ tag }}</div>
         </div>
     </div>
