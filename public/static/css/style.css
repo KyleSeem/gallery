@@ -166,9 +166,13 @@ header.page-header {
 
     /* small screen */
     @media screen and (max-width:600px) {
+        div.radio {
+            display: inline-block;
+            padding: 0 .5em;
+            margin: 0;
+        }
         section#prv .thumbnail {
             max-width: 80vw;
-
         }
         section#prv i {
             font-size: 1em;

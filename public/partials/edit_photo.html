@@ -1,9 +1,11 @@
 <!-- this version has been modified to allow limited functionality upon deployment -->
 
 <!-- displays photo selected for edit -->
-<div class="nav" style="width:90%; text-align:right; padding-bottom:20px;">
-    <a href="#!/photography/maintain/update_db">back to list</a>
-</div>
+<ul class="nav nav-tabs" style="margin-top:0; margin-bottom:10px;">
+    <li role="presentation"><a href="#!/photography/maintain/update_db">existing photos</a></li>
+    <li class="active" role="presentation"><a href disabled><strong>edit photo</strong></a></li>
+    <li role="presentation"><a href="#!/photography/maintain/add_new">add new photo</a></li>
+</ul>
 
 <main ng-init="show()">
     <section class="col-md-4" style="display:inline-block">

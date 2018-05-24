@@ -13,7 +13,7 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
 
     // defines date object used for cookie expiration
     var n = new Date();
-    var expDate = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours()+4);
+    var expDate = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours()+24);
     // var expDate2 = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours(), n.getMinutes()+1);
     // $cookies.remove('modalViewed');
 
@@ -115,8 +115,8 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
             $cookies.putObject('photoArray', arr, { expires:expDate }); // replace existing session array with new array in cookies to save changes
 
             $location.url('/photography/maintain/update_db');
+            $scope.editPhoto = {};
         }
-        $scope.editPhoto = {};
     }
 
     // DELETE photo from sessionPhotos

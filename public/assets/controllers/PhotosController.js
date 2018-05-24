@@ -102,6 +102,11 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     // search database for photos with selected tag
         modalInstance.result
         .then(function(selectedTag) {
+            // essentially resetting masonry - this helps with formatting bug (??)
+            $scope.photos = [];
+            $scope.sessionPhotos = $cookies.getObject('photoArray');
+            $scope.index();
+
             // assign to parent scope so clear filter will reset properly
             $scope.$parent.search = { tags: selectedTag };
             $scope.search = { tags: selectedTag };
