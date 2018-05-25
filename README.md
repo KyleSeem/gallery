@@ -1,5 +1,5 @@
 # KS Photography
-[Visit KS Photography](http://www.kyleseem.com/#!/photography/home)
+[Visit KS Photography](http://www.kyleseem.com/#!/photography/home "www.kyleseem.com/#!/photography/")
 
 General
 ------
