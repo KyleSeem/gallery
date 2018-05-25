@@ -102,15 +102,19 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     // search database for photos with selected tag
         modalInstance.result
         .then(function(selectedTag) {
-            // essentially resetting masonry - this helps with formatting bug (??)
-            $scope.photos = [];
-            $scope.sessionPhotos = $cookies.getObject('photoArray');
-            $scope.index();
+            // console.log(selectedTag);
+            // only execute if tag is selected; if close button clicked DO NOT reset masonry grid
+            if (selectedTag != undefined) {
+                // essentially resetting masonry - this helps with formatting bug (??)
+                $scope.photos = [];
+                $scope.sessionPhotos = $cookies.getObject('photoArray');
+                $scope.index();
 
-            // assign to parent scope so clear filter will reset properly
-            $scope.$parent.search = { tags: selectedTag };
-            $scope.search = { tags: selectedTag };
-            $window.scrollTo(0,0);
+                // assign to parent scope so clear filter will reset properly
+                $scope.$parent.search = { tags: selectedTag };
+                $scope.search = { tags: selectedTag };
+                $window.scrollTo(0,0);
+            }
         })
         .catch(function(res) {
             if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
