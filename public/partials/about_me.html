@@ -1,20 +1,25 @@
 <!-- this is the partial for the "about me" page -->
 
-<section class="about">
-    <div class="col-md-3" style="margin-top:.5em;">
-        <div class="thumbnail">
+<section id="AboutMe" class="about">
+    <div class="me" style="margin-top:.5em;">
+        <div class="thumbnail" style="margin-bottom:5px;">
             <img src="../static/example_img/me.jpg" alt="profile pic" />
+        </div>
+
+        <div style="text-align:center;">
+            <a class="icons" href ng-click="newTab('https://www.linkedin.com/in/kyle-seem/')"><img src="../static/icons/linkedin_icon_square.png" alt="LinkedIn icon" /></a>
+            <a class="icons" href ng-click="newTab('https://github.com/KyleSeem')"><img src="../static/icons/github_icon_square.png" alt="GitHub icon" /></a>
+            <a class="icons" href ng-click="newTab('https://twitter.com/_KyleDanielle')"><img src="../static/icons/twitter_icon_square.png" alt="Twitter icon" /></a>
         </div>
     </div>
 
-    <div class="trbox col-md-offset-3">
+    <div class="trbox">
         <h1>My name is Kyle and I make web things</h1>
 
         <p>I'm a full-stack web developer specializing in the MEAN and Django stacks. I currently live in upstate New York, but spent most of my life in the Pacific Northwest. I love cats, video games, kayaking, and Harry Potter.</p>
 
         <p>Prior to entering the world of web development I was an assistant auditor at a local health insurance company. I enjoy data analysis, interpretation and interpolation, value precision and efficiency, and thrive in structured environments.</p>
 
-        <p>I believe in compassion, empathy, knowledge and inclusion.</p>
-        <!-- <p>I am an atheist, humanist, feminist; I believe in compassion, empathy, knowledge and inclusion.</p> -->
+        <p style="padding-bottom:.5em;">I believe in compassion, empathy, knowledge and inclusion.</p>
     </div>
 </section>

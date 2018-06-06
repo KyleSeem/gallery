@@ -42,7 +42,7 @@ header.page-header {
         #KSP {
             font-family: 'Julius Sans One', sans-serif;
             font-weight: bold;
-            font-size: 2em;
+            /* font-size: 2em; */
         }
         footer.footer_all, footer.dash {
             font-size: .9em;
@@ -251,41 +251,62 @@ header.page-header {
 /* about pages */
     section.about {
         font-family: 'Quicksand', sans-serif;
-        max-width:1100px;
     }
     /* big screen */
     @media screen and (min-width: 601px) {
+        section#AboutMe {
+            display: inline-flex;
+        }
         .about div {
             margin-bottom: 1.5em;
+            /* padding-bottom: .5em; */
+        }
+        .about .indent:last-child {
             padding-bottom: .5em;
         }
-            .about h1 {
-                font-size: 3em;
-            }
-            .about h2 {
-                padding-left: .5em;
-            }
-            .about h3 {
-                font-size: 1.5em;
-            }
-            .about p {
-                font-size: 1.25em;
-            }
-            .indent {
-                padding-left: 2em;
-                padding-right: 2em;
-            }
-            div.trbox {
-                padding-left: 1em;
-                padding-right: .5em;
-                color: #000000;
-                background: rgba(255, 255, 255, 0.85);
-            }
+        .about h1 {
+            font-size: 3em;
+        }
+        .about h2 {
+            padding-left: .5em;
+        }
+        .about h3 {
+            font-size: 1.5em;
+        }
+        .about p {
+            font-size: 1.25em;
+        }
+        .indent {
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        div.trbox {
+            padding-left: 1em;
+            padding-right: .5em;
+            color: #000000;
+            background: rgba(255, 255, 255, 0.85);
+        }
+        #AboutMe div.trbox {
+            max-width: 70%;
+
+        }
+        div.me {
+            width: fit-content;
+            margin: .5em;
+        }
+        .icons img {
+            width: 2.75em;
+            margin: 0 .5em;
+        }
     }
     /* small screen */
     @media screen and (max-width: 600px) {
+        section.about {
+            display: block;
+        }
         .about h1 {
             font-size: 2em;
+            text-align: center;
         }
         .about h2 {
             font-size: 2em;
@@ -302,5 +323,13 @@ header.page-header {
             padding-right: 1em;
             color: #000000;
             background: rgba(255, 255, 255, 0.85);
+            /* width: 60%; */
+        }
+        div.me div.thumbnail {
+            margin: auto;
+            margin-bottom: 5px;
+        }
+        .icons img {
+            width: 2.75em;
         }
     }

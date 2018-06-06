@@ -13,12 +13,14 @@
 
         <meta charset="UTF-8" name="description" content="KS Photography is a photo gallery application using MEAN stack development designed by Kyle Seem">
         <meta name="author" content="Kyle Seem">
-        <meta name="keywords" content="kyleseem, kyleseem.com, kyle seem, ksphotography, ks photography"
+        <meta name="keywords" content="kyleseem, kyleseem.com, kyle seem, ksphotography, ks photography">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KS Photography</title>
         <link rel="ksp icon" href="ksp_icon.ico">
     <!-- google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Quicksand" rel="stylesheet">
+    <!-- bootstrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- angular-masonry dependancies // order is important!!!! -->
         <script src="jquery/dist/jquery.js"></script>
@@ -148,14 +150,12 @@
             </div>
 
             <footer ng-show="renderAction != 'home'">
-                <p>
-                    <div class="trbox" style="width:fit-content; margin:auto; padding:.5em;">
-                        © 2018 Kyle Seem |
-                        <a href ng-click="newTab('https://www.linkedin.com/in/kyle-seem/')">LinkedIn</a> |
-                        <a href ng-click="newTab('https://github.com/KyleSeem')">GitHub</a> |
-                        <a href ng-click="newTab('https://twitter.com/_KyleDanielle')">Twitter</a>
-                    </div>
-                </p>
+                <div class="trbox" style="width:fit-content; margin:auto; padding:.5em;">
+                    © 2018 Kyle Seem |
+                    <a href ng-click="newTab('https://www.linkedin.com/in/kyle-seem/')">LinkedIn</a> |
+                    <a href ng-click="newTab('https://github.com/KyleSeem')">GitHub</a> |
+                    <a href ng-click="newTab('https://twitter.com/_KyleDanielle')">Twitter</a>
+                </div>
             </footer>
 
         </div> <!-- close main container -->

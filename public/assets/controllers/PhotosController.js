@@ -71,7 +71,6 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
 
 // open new tab for github repo link (about site page)
     $scope.newTab = function(link) {
-        console.log(link);
         $window.open(link);
     }
 

@@ -1,30 +1,37 @@
 <!-- this is the partial for the "about the site" page -->
 
-<section class="about" style="margin:1em;">
+<section id="AboutSite" class="about" style="margin:1em;">
     <h2>What is KS Photography?</h2>
 
     <div class="trbox" style="border-top: 1px solid #e7e7e7; padding-top:.25em;">
+<!-- GENERAL SECTION -->
         <div class="indent">
             <h3><u>General</u></h3>
-            <p>This application displays my personal photography in gallery format with a web UI for managing the content. The primary purpose is to demonstrate my abilities as a web developer/software engineer.</p>
+            <p>KS Photography is a web app that lets me manage and share my photography in a gallery format. The primary purpose is to demonstrate my abilities as a web developer/software engineer.</p>
         </div>
-
+<!-- CONSTRUCTION SECTION -->
+        <div class="indent">
+            <h3><u>Construction</u></h3>
+            <!-- separated lines with in p tag because atom formatting was getting confused -->
+            <p>
+                I built this application using the MEAN stack of web development.
+                It is written in JavaScript using <a href ng-click="newTab('https://angularjs.org/')">AngularJS</a> and <a href ng-click="newTab('https://nodejs.org/en/')">Node.js</a>,
+                employs a <a href ng-click="newTab('https://www.mongodb.com/')">MongoDB</a> database,
+                and is stylized with <a href ng-click="newTab('https://getbootstrap.com/')">Bootstrap</a> and <a href ng-click="newTab('https://angular-ui.github.io/bootstrap/')">UI Bootstrap</a>, <a href ng-click="newTab('https://fonts.google.com/')">Google Fonts</a>, and <a href ng-click="newTab('https://masonry.desandro.com/')">Masonry</a>. All photos and backgrounds are original images created and/or owned by Kyle Seem.
+            </p>
+            <p>The code for this application can be viewed in my <a href ng-click="newTab('https://github.com/KyleSeem/gallery')">GitHub repository</a>.</p>
+        </div>
+<!-- LIMITED FUNCTIONALITY SECTION -->
         <div class="indent">
             <h3><u>Limited Functionality</u></h3>
-            <p>As a portfolio example, I believe it is important to present a fully functional application. However, I feel it necessary to employ certain restrictions in order to avoid possible misrepresentation of myself. Therefore, all user-initiated additions, edits and updates have been purposely limited and use front-end storage only. This means that no user changes will permanently impact the content of the application.</p>
-        </div>
+            <p>As this is a portfolio example, I want to show that this is not just a gallery, but an interactive application with a UI that allows me to fully manage my content. For me, part of designing a good application is making it easy to use and low-maintenance. I want you to be able to experience the app like I do, so the <a href="#!/photography/maintain/add_new">update > add new photo</a> section has a group of images that can be added to, edited and deleted from the gallery. Any changes you make are temporary and can only be seen on the device you are using. So go nuts!</p>
 
+            <p>Wait... if it's all temporary, why can't you just upload your own images? The short answer is lack of storage. Keeping your changes local means other users will see the original gallery when they visit the site. It also means I don't have to worry about what content shows up in my gallery. Local storage is limited and storing more than just some settings data would significantly slow things down or even just not work. I'm still trying out different options in my spare time so it may be available in the future.</p>
+        </div>
+<!-- COOKIES SECTION -->
         <div class="indent">
             <h3><u>Cookies</u></h3>
             <p>Cookies are used to identify if a user has visited or made any changes to the site. I collect zero personal information and all data is automatically cleared after 24 hours.</p>
-        </div>
-
-        <div class="indent">
-            <h3><u>Construction</u></h3>
-            <p>
-                This application utilizes the MEAN stack of web development. It is written in JavaScript using <a href ng-click="newTab('https://angularjs.org/')">AngularJS</a> and <a href ng-click="newTab('https://nodejs.org/en/')">Node.js</a>, employs a <a href ng-click="newTab('https://www.mongodb.com/')">MongoDB</a> database, and is stylized with <a href ng-click="newTab('https://fonts.google.com/')">Google Fonts</a>, <a href ng-click="newTab('https://getbootstrap.com/')">Bootstrap</a> and <a href ng-click="newTab('https://angular-ui.github.io/bootstrap/')">UI Bootstrap</a>, and <a href ng-click="newTab('https://masonry.desandro.com/')">Masonry</a>. All photos are original images taken by and/or owned by Kyle Seem.
-            </p>
-            <p>The code for this application can be viewed in my <a href ng-click="newTab('https://github.com/KyleSeem/gallery')">GitHub repository</a>. Thank you for visiting!</p>
         </div>
     </div>
 </section>
