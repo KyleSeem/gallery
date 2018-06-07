@@ -37,7 +37,7 @@
                         <a ng-click="toggleImage()">{{ photo.name }} &#9663;</a>
                         <div ng-show="img_toggle === 0"></div>
                         <div ng-show="img_toggle === 1">
-                            <img style="width:100%;" src="../static/example_img/{{ photo.file_name }}">
+                            <img style="width:100%;" ng-src="../static/example_img/{{ photo.file_name }}">
                         </div>
                     </td>
                     <td class="col-md-4">{{ photo.description }}</td>
@@ -56,7 +56,7 @@
                         <a ng-click="toggleImage()">{{ photo.name }} &#9663;</a>
                         <div ng-show="img_toggle === 0"></div>
                         <div ng-show="img_toggle === 1">
-                            <img style="width:100%;" src="../static/img/{{ photo.file_name }}">
+                            <img style="width:100%;" ng-src="../static/img/{{ photo.file_name }}">
                         </div>
                     </td>
                     <td class="col-md-4">{{ photo.description }}</td>

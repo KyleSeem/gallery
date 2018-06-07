@@ -13,11 +13,11 @@
 
 <!-- modal-body / displays photo -->
     <div class="modal-body" ng-show="photo.file_name != 'me_at_the_beach.jpg' && photo.file_name != 'nola_street_music.jpg'">
-        <img class="img-responsive {{ photo.orientation }}" src="../static/img/{{ photo.file_name }}">
+        <img class="img-responsive {{ photo.orientation }}" ng-src="../static/img/{{ photo.file_name }}">
     </div>
 
     <div class="modal-body" ng-show="photo.file_name === 'me_at_the_beach.jpg' || photo.file_name === 'nola_street_music.jpg'">
-        <img class="img-responsive {{ photo.orientation }}" src="../static/example_img/{{ photo.file_name }}">
+        <img class="img-responsive {{ photo.orientation }}" ng-src="../static/example_img/{{ photo.file_name }}">
     </div>
 
 <!-- modal footer / contains search via tag links -->

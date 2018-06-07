@@ -39,7 +39,6 @@ header.page-header {
         #KSP {
             font-family: 'Julius Sans One', sans-serif;
             font-weight: bold;
-            /* font-size: 2em; */
         }
         footer.footer_all, footer.dash {
             font-size: .9em;
@@ -146,12 +145,6 @@ header.page-header {
         padding: 4px;
         margin-bottom: 10px;
     }
-    .preview.vertical {
-        width: 60%;
-    }
-    .preview.horizontal {
-        width: 90%;
-    }
     .showTags {
         vertical-align: middle;
         padding-top: 5px;
@@ -160,19 +153,34 @@ header.page-header {
         width:500px;
         height:400px;
     }
+    /* big screen */
+    @media screen and (min-width:601px) {
+        footer.update {
+            position: absolute;
+        }
+        .preview.vertical {
+            width: 60%;
+        }
+        .preview.horizontal {
+            width: 90%;
+        }
+    }
 
     /* small screen */
     @media screen and (max-width:600px) {
-        div.radio {
+        /* div.radio {
             display: inline-block;
             padding: 0 .5em;
             margin: 0;
-        }
+        } */
         section#prv .thumbnail {
             max-width: 80vw;
         }
         section#prv i {
             font-size: 1em;
+        }
+        .preview {
+            max-width: 100%;
         }
     }
 
@@ -274,9 +282,10 @@ header.page-header {
             background: rgba(255, 255, 255, 0.85);
         }
         #AboutMe div.thumbnail {
-            /* max-width: 70%; */
-            /* margin-bottom: .5em; */
-
+            margin-bottom: 1em;
+        }
+        #AboutMe p {
+            margin-bottom: 1em;
         }
         #profile_pic {
             width: 310px;
@@ -313,7 +322,6 @@ header.page-header {
             padding-right: 1em;
             color: #000000;
             background: rgba(255, 255, 255, 0.85);
-            /* width: 60%; */
         }
         #profile_pic div.thumbnail {
             margin: auto;

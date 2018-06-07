@@ -64,17 +64,17 @@
 <!-- image preview -->
     <section id="prv" class="col-md-offset-1 col-md-7" style="display:inline-block;">
         <div ng-show="editPhoto.orientation == undefined">
-            <div class="thumbnail">
+            <div id="empty" class="thumbnail">
                 <div><i>Image Preview...</i></div>
             </div>
         </div>
 
         <div ng-show="editPhoto.orientation === 'vertical'">
-            <img class="preview vertical" src="../static/example_img/{{ editPhoto.file_name }}">
+            <img class="preview vertical" ng-src="../static/example_img/{{ editPhoto.file_name }}">
         </div>
 
         <div ng-show="editPhoto.orientation === 'horizontal'">
-            <img class="preview horizontal" src="../static/example_img/{{ editPhoto.file_name }}">
+            <img class="preview horizontal" ng-src="../static/example_img/{{ editPhoto.file_name }}">
         </div>
 
     </section>

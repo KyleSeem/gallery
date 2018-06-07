@@ -30,11 +30,12 @@
             </select>
         </div>
 
+<!-- REMOVED RADIO BUTTONS FOR THIS DEPLOYMENT ... but I've changed my mind on this multiple times so I'm keeping the code for now -->
     <!-- radio buttons use ngSwitch based on file_name -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="control-label" for="orientation">Orientation:</label>
             <div class="animate-switch-container" ng-switch on="newPhoto.file_name">
-            <!-- default view -->
+
                 <div ng-switch-default>
                     <div class="radio" style="margin-top:0px;">
                         <label>
@@ -49,7 +50,7 @@
                         </label>
                     </div>
                 </div>
-            <!-- nola view -->
+
                 <div ng-switch-when="nola_street_music.jpg">
                     <div class="radio" style="margin-top:0px;">
                         <label>
@@ -64,7 +65,7 @@
                         </label>
                     </div>
                 </div>
-            <!-- beach view -->
+
                 <div ng-switch-when="me_at_the_beach.jpg">
                     <div class="radio" style="margin-top:0px;">
                         <label style="color:#c5c1c2; cursor:default;">
@@ -80,7 +81,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     <!-- title -->
         <div class="form-group">
@@ -105,6 +106,14 @@
             </div>
         </div>
 
+    <!-- tempTags -->
+    <div id="showTags" ng-show="tempTags.length > 0">
+        <label>Tags:&nbsp;</label>
+        <div ng-repeat="tag in tempTags | orderBy:-key">
+            <div class="btn btn-default" ng-click="removeTag(tag)">{{ tag }}</div>
+        </div>
+    </div>
+
     <!-- submit button -->
         <div class="form-group" style="margin-top:1.5em;">
             <input class="btn btn-primary" type="submit" value="Submit" ng-click="createTemp()">
@@ -125,19 +134,12 @@
         </div>
 
         <div ng-switch-when="nola_street_music.jpg">
-            <img class="preview horizontal" src="../static/example_img/{{ newPhoto.file_name }}">
+            <img class="preview horizontal" ng-src="../static/example_img/{{ newPhoto.file_name }}">
         </div>
 
         <div ng-switch-when="me_at_the_beach.jpg">
-            <img class="preview vertical" src="../static/example_img/{{ newPhoto.file_name }}">
+            <img class="preview vertical" ng-src="../static/example_img/{{ newPhoto.file_name }}">
         </div>
     </div>
 
-    <!-- tempTags -->
-    <div id="showTags" ng-show="tempTags.length > 0">
-        <label>Tags:&nbsp;</label>
-        <div ng-repeat="tag in tempTags | orderBy:-key">
-            <div class="btn btn-default" ng-click="removeTag(tag)">{{ tag }}</div>
-        </div>
-    </div>
 </section>

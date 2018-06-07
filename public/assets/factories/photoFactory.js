@@ -11,9 +11,10 @@ myApp.factory('photoFactory', ['$http', function($http){
         if (!photo.name) {
             alerts.push('image title required');
         }
-        if (!photo.orientation) {
-            alerts.push('preferred image orientation required');
-        }
+        // not using in deployment right now
+        // if (!photo.orientation) {
+        //     alerts.push('preferred image orientation required');
+        // }
 
         if (alerts.length > 0) {
             callback({ alerts:alerts });
@@ -71,7 +72,6 @@ myApp.factory('photoFactory', ['$http', function($http){
             console.log(error);
         })
     }
-
 
     // update existing photo in database
     factory.update = function(upd, callback) {

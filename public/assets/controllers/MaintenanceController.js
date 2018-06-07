@@ -47,10 +47,19 @@ myApp.controller('MaintenanceController', ['$scope', 'photoFactory', '$uibModal'
         }
     }
 
+
+
 ///////////////////////////////////////////////////////
 // DEPLOYMENT/LIMITED-FUNCTIONALITY-SPECIFIC OPERATIONS
     $scope.createTemp = function() {
         $scope.alerts = [];
+        var np = $scope.newPhoto.file_name;
+        if (np === 'me_at_the_beach.jpg') {
+            $scope.newPhoto.orientation = 'vertical';
+        }
+        else if (np === 'nola_street_music.jpg') {
+            $scope.newPhoto.orientation = 'horizontal';
+        }
         $scope.newPhoto.tags = $scope.tempTags;
 
         photoFactory.createTemp($scope.newPhoto, function(response) {

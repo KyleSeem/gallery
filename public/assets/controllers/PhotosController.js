@@ -7,44 +7,6 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     $scope.harpuff = "Harry Potter";
 
 
-
-// gets the data from the current route and updates nav bar with "active" class for associated route
-    render = function() {
-        $cookies.getAll();
-        var renderAction = $route.current.action;
-        var isHome = (renderAction == 'home');
-        var isUpdate = (renderAction == 'update');
-        var isAbout = (renderAction == 'about');
-
-        $scope.renderAction = renderAction;
-        if (isHome) {
-            $scope.isHome = 'active';
-            $scope.background = null;
-        }
-        else if (isUpdate) {
-            $scope.isUpdate = 'active';
-            $scope.background = null;
-        }
-        else if (isAbout) {
-            $scope.isAbout = 'active';
-            $scope.background = 'painting';
-        }
-    }
-
-// used to determine route on page change - this was done so I didn't have to include the full nav on every partial
-    $scope.$on(
-        "$routeChangeSuccess",
-        function($currentRoute, $previousRoute) {
-            // console.log($currentRoute);
-            $scope.isHome = 'nope';
-            $scope.isUpdate = 'nope';
-            $scope.isAbout = 'nope';
-
-            render();
-            // console.log($scope.renderAction);
-        }
-    )
-
 // get all photos
     $scope.index = function() {
         $scope.sessionPhotos = $cookies.getObject('photoArray');
@@ -84,6 +46,47 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
         }
     }
 
+// gets the data from the current route and updates nav bar with "active" class for associated route
+    render = function() {
+        $cookies.getAll();
+        var renderAction = $route.current.action;
+        var isHome = (renderAction == 'home');
+        var isUpdate = (renderAction == 'update');
+        var isAbout = (renderAction == 'about');
+
+        $scope.renderAction = renderAction;
+        if (isHome) {
+            $scope.isHome = 'active';
+            $scope.background = null;
+            $scope.footClass = 'home';
+        }
+        else if (isUpdate) {
+            $scope.isUpdate = 'active';
+            $scope.background = null;
+            $scope.footClass = 'update';
+        }
+        else if (isAbout) {
+            $scope.isAbout = 'active';
+            $scope.background = 'painting';
+            $scope.footClass = 'about';
+        }
+    }
+
+// used to determine route on page change - this was done so I didn't have to include the full nav on every partial
+    $scope.$on(
+        "$routeChangeSuccess",
+        function($currentRoute, $previousRoute) {
+            // console.log($currentRoute);
+            $scope.isHome = 'nope';
+            $scope.isUpdate = 'nope';
+            $scope.isAbout = 'nope';
+
+            render();
+            // console.log($scope.renderAction);
+        }
+    )
+
+////////////////////
 // MODAL - window size adjusted for vertical photos
     $scope.viewPhoto = function() {
         var $ctrl = this;

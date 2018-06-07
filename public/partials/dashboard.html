@@ -9,7 +9,7 @@
         <div ng-repeat="photo in sessionPhotos | filter:search:strict">
             <div class="masonry-brick" prepend="isPrepended()">
                 <a href="" ng-click="viewPhoto()">
-                    <img class="myBrick" src="../static/example_img/{{ photo.file_name }}" alt="{{ photo.name }}">
+                    <img class="myBrick" ng-src="../static/example_img/{{ photo.file_name }}" alt="{{ photo.name }}">
                 </a>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <div ng-repeat="photo in photos | orderBy:'-name' | filter:search:strict">
             <div class="masonry-brick">
                 <a href="" ng-click="viewPhoto()">
-                    <img class="myBrick" src="../static/img/{{ photo.file_name }}" alt="{{ photo.name }}">
+                    <img class="myBrick" ng-src="../static/img/{{ photo.file_name }}" alt="{{ photo.name }}">
                 </a>
             </div>
         </div>
