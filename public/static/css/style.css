@@ -27,14 +27,11 @@ header.page-header {
         footer {
             font-family: 'Quicksand', sans-serif;
             text-align: center;
-            position: fixed;
+            position: static;
             right: 2em;
             left: 2em;
             margin: 1em 4em;
             bottom: 0;
-        }
-        footer.dash {
-            position: static;
         }
     }
     /* small screen */
@@ -254,18 +251,9 @@ header.page-header {
     }
     /* big screen */
     @media screen and (min-width: 601px) {
-        section#AboutMe {
-            display: inline-flex;
-        }
-        .about div {
-            margin-bottom: 1.5em;
-            /* padding-bottom: .5em; */
-        }
-        .about .indent:last-child {
-            padding-bottom: .5em;
-        }
         .about h1 {
             font-size: 3em;
+            margin-top: 0;
         }
         .about h2 {
             padding-left: .5em;
@@ -281,18 +269,20 @@ header.page-header {
             padding-right: 2em;
         }
         div.trbox {
-            padding-left: 1em;
-            padding-right: .5em;
+            padding: 1.25em;
             color: #000000;
             background: rgba(255, 255, 255, 0.85);
         }
-        #AboutMe div.trbox {
-            max-width: 70%;
+        #AboutMe div.thumbnail {
+            /* max-width: 70%; */
+            /* margin-bottom: .5em; */
 
         }
-        div.me {
-            width: fit-content;
-            margin: .5em;
+        #profile_pic {
+            width: 310px;
+            float: left;
+            margin-right: 1.5em;
+            margin-bottom: .3em;
         }
         .icons img {
             width: 2.75em;
@@ -325,7 +315,7 @@ header.page-header {
             background: rgba(255, 255, 255, 0.85);
             /* width: 60%; */
         }
-        div.me div.thumbnail {
+        #profile_pic div.thumbnail {
             margin: auto;
             margin-bottom: 5px;
         }

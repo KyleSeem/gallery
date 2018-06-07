@@ -4,6 +4,8 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     $scope.animationsEnabled = true;
     $scope.photos = [];
     $scope.selectedTag;
+    $scope.harpuff = "Harry Potter";
+
 
 
 // gets the data from the current route and updates nav bar with "active" class for associated route
