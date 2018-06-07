@@ -26,3 +26,5 @@ Disallow: /matches-selector/matches-selector.js
 Disallow: /outlayer/item.js
 Disallow: /outlayer/outlayer.js
 Disallow: /static/css/style.css
+Disallow: /flow.js/dist/flow.min.js
+Disallow: /ng-flow/dist/ng-flow.min.js
