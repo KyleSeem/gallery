@@ -11,14 +11,14 @@
           gtag('config', 'UA-120055748-1');
         </script>
 
-        <meta charset="UTF-8" name="description" content="KS Photography is a photo gallery application using MEAN stack development designed by Kyle Seem">
-        <meta name="author" content="Kyle Seem">
+        <meta charset="UTF-8" name="description" content="KS Photography is a photo gallery built by Kyle Seem">
+        <title>KS Photography | Kyle Seem</title>
         <meta name="keywords" content="kyleseem, kyleseem.com, kyle seem, ksphotography, ks photography">
+        <meta name="author" content="Kyle Seem">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KS Photography</title>
         <link rel="ksp icon" href="ksp_icon.ico">
     <!-- google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Quicksand|Henny+Penny" rel="stylesheet">
     <!-- bootstrap -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -55,7 +55,7 @@
         <script src="./assets/factories/photoFactory.js"></script>
         <script>
             $(document).ready(function() {
-
+                // masonry layout defined
                 var $grid = $('.grid').imagesLoaded(function() {
                     $grid.masonry({
                         itemSelector: '.masonry-brick',
@@ -63,16 +63,6 @@
                         percentPosition: true
                     });
                 });
-
-                // var $grid = $('.grid').masonry({
-                //     itemSelector: '.masonry-brick',
-                //     columnWidth: '.masonry-brick',
-                //     percentPosition: true
-                // });
-                //
-                // $grid.imagesLoaded().progress(function() {
-                //     $grid.masonry('layout');
-                // });
 
                 // disable right click on all images
                 $(document).on('contextmenu', 'img', function() {
@@ -87,7 +77,7 @@
         <!-- page header and nav bar -->
             <header class="page-header">
                 <h1 id="KSP">KS Photography</h1>
-                <!-- <h1 id="KSP">KS Photography</h1> -->
+
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
 

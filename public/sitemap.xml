@@ -2,7 +2,37 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
     <url>
         <loc>http://www.kyleseem.com/</loc>
-        <lastmod>2018-05-23T19:41:08+00:00</lastmod>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/home</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/about_me</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/about_site</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/maintain/add_new</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/maintain/update_db</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.kyleseem.com/#!/photography/maintain/</loc>
+        <lastmod>2018-06-08T20:47:11+00:00</lastmod>
         <changefreq>weekly</changefreq>
     </url>
 </urlset>

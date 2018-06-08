@@ -79,6 +79,31 @@ header.page-header {
         outline: none !important;
     }
 
+    /* easter egg alert - big screen */
+    @media screen and (min-width: 601px) {
+        .alert.easter-egg {
+            text-align: center;
+            font-size: 3em;
+            /* background-image: url('../img/cats/glass_bright.png'); */
+            background-image: url('../img/cats/bright_pink.png');
+            font-family: 'Henny Penny', cursive;
+        }
+        div.easter-egg {
+            background-image: url('../img/cats/bright_pink.png');
+        }
+    }
+
+    /* easter egg alert - small screen */
+    @media screen and (max-width:600px) {
+        .alert.easter-egg {
+            text-align: center;
+            font-size: 1.25em;
+            /* background-image: url('../img/cats/glass_bright.png'); */
+            background-image: url('../img/cats/bright_pink.png');
+            font-family: 'Henny Penny', cursive;
+        }
+    }
+
 /* ///////////////////////////////// */
 /* MODAL */
     .modal-dialog {

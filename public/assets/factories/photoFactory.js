@@ -1,7 +1,7 @@
 myApp.factory('photoFactory', ['$http', function($http){
     const factory = {};
 
-    // this function performs simple validation when creating image in limited functionality mode
+// this function performs simple validation when creating image in limited functionality mode
     factory.createTemp = function(photo, callback) {
         alerts = [];
 
@@ -24,7 +24,7 @@ myApp.factory('photoFactory', ['$http', function($http){
         }
     }
 
-    // get all photos
+// get all photos
     factory.index = function(callback) {
         $http.get('/photos')
         .then(function(response) {
@@ -35,7 +35,7 @@ myApp.factory('photoFactory', ['$http', function($http){
         })
     }
 
-    // create new photo
+// create new photo
     factory.create = function(photo, callback) {
         alerts = [];
 
@@ -62,7 +62,7 @@ myApp.factory('photoFactory', ['$http', function($http){
         })
     }
 
-    // show specified photo
+// show specified photo
     factory.show = function(id, callback) {
         $http.get('show_photo/' + id)
         .then(function(response) {
@@ -73,7 +73,7 @@ myApp.factory('photoFactory', ['$http', function($http){
         })
     }
 
-    // update existing photo in database
+// update existing photo in database
     factory.update = function(upd, callback) {
         alerts = [];
 
@@ -96,8 +96,7 @@ myApp.factory('photoFactory', ['$http', function($http){
         })
     }
 
-
-    // delete photo from database
+// delete photo from database
     factory.delete = function(id, callback) {
         $http.delete('/delete_photo/' + id)
         .then(function(response) {
@@ -107,6 +106,19 @@ myApp.factory('photoFactory', ['$http', function($http){
             console.log(error);
         })
     }
+
+// get files for 'cats' easter egg
+    factory.easter = function(callback) {
+        $http.get('/cats')
+        .then(function(response) {
+            callback(response.data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+    }
+
+
 
     return factory;
 }]); // close photoFactory

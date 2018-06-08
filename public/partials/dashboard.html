@@ -1,9 +1,16 @@
 <div ng-init="clearWall()"></div>
 <div ng-init="getSession()"></div>
 <div ng-init="index()"></div>
+<div ng-init="easter()"></div>
 
 <!-- uses angular-masonry to display all photos loaded in db -->
 <div class="row" style="margin:0px;">
+    <div ng-if="search.tags === 'cats'">
+        <div class="alert easter-egg">
+            Congratulations! You just found an Easter egg!
+        </div>
+    </div>
+
     <div masonry load-images="true" class="grid" reload-on-show ng-show="photos">
     <!-- limited functionality images (stores as cookies) -->
         <div ng-repeat="photo in sessionPhotos | filter:search:strict">
@@ -19,6 +26,16 @@
                 <a href="" ng-click="viewPhoto()">
                     <img class="myBrick" ng-src="../static/img/{{ photo.file_name }}" alt="{{ photo.name }}">
                 </a>
+            </div>
+        </div>
+    <!--  -->
+        <div ng-if="search.tags === 'cats'">
+            <div ng-repeat="cat in cats | orderBy:'idx'">
+                <div class="masonry-brick">
+                    <a href="" ng-click="viewCats()">
+                        <img class="myBrick" ng-src="../static/img/cats/{{ cat.file_name }}" alt="{{ cat.name }}" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>

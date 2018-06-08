@@ -5,7 +5,9 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
     $scope.photos = [];
     $scope.selectedTag;
     $scope.harpuff = "Harry Potter";
+    $scope.cats = [];
 
+    // $scope.search = { tags: 'cats' };
 
 // get all photos
     $scope.index = function() {
@@ -126,5 +128,38 @@ myApp.controller('PhotosController', ['$scope', 'photoFactory', '$cookies', '$lo
             }
         });
     }
+
+//////////////////
+// EASTER EGG
+    // gets all easter egg images - index method
+    $scope.easter = function() {
+        photoFactory.easter(function(response) {
+            $scope.cats = response;
+        });
+    }
+
+    // modal function - slightly altered for easter egg only
+    $scope.viewCats = function() {
+        var $ctrl = this;
+        // console.log($ctrl.photo);
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'modals/cats_modal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                photo: function() {
+                    return $ctrl.cat;
+                }
+            },
+        });
+
+        modalInstance.result
+        .catch(function(res) {
+            if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+                throw res;
+            }
+        });
+    }
+
 
 }]); // close PhotosController

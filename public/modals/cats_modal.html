@@ -1,0 +1,22 @@
+<!-- this is the template for the modal that shows enlarged versions of the easter egg photos -->
+
+<div class="dialog" style="text-align:center;">
+
+<!-- modal-header / close(x) -->
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">This is my cat Marley and I love her!</h3>
+    </div>
+
+<!-- modal-body / displays photo -->
+    <div class="modal-body">
+        <img class="img-responsive {{ photo.orientation }}" ng-src="../static/img/cats/{{ photo.file_name }}" alt="{{ photo.name }}" />
+    </div>
+
+<!-- modal footer -->
+    <div class="modal-footer sm-modal-hide" style="text-align:center;">
+        <h4>I LOVE CATS!</h4>
+    </div>
+</div>
