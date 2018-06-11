@@ -31,9 +31,9 @@
     <!--  -->
         <div ng-if="search.tags === 'cats'">
             <div ng-repeat="cat in cats | orderBy:'idx'">
-                <div class="masonry-brick">
+                <div class="masonry-brick" style="padding:5px;">
                     <a href="" ng-click="viewCats()">
-                        <img class="myBrick" ng-src="../static/img/cats/{{ cat.file_name }}" alt="{{ cat.name }}" />
+                        <img class="myBrick {{ cat.idx }}" ng-src="../static/img/cats/{{ cat.file_name }}" alt="{{ cat.name }}" style="padding:0; border:1px solid #BFBFBF;" />
                     </a>
                 </div>
             </div>
